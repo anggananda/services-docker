@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin_service
+    ports:
+      - "8082:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: user
+      PMA_PASSWORD: userpassword
+    networks:
+      - service_network
+
+networks:
+  service_network:
+    external: true

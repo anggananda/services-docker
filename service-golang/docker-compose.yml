@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  golang-app:
+    image: service-golang:latest
+    container_name: golang-app
+    env_file:
+      - .env
+    ports:
+      - "8083:8080"
+    networks:
+      - service_network
+
+networks:
+  service_network:
+    external: true
